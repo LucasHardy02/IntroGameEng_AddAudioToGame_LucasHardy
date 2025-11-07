@@ -31,37 +31,40 @@ public class SFXManager : MonoBehaviour
     //called in the PlayerController Script
     public void PlayerShoot()
     {
-        SFXaudioSource.PlayOneShot(playerShoot);
+
+        SFXaudioSource.PlayOneShot(playerShoot, 0.5f);
     }
 
     //called in the PlayerController Script
     public void PlayerDamage()
     {
-        SFXaudioSource.PlayOneShot(playerDamage);
+        SFXaudioSource.PlayOneShot(playerDamage, 0.8f);
     }
 
     //called in the PlayerController Script
     public void PlayerExplosion()
     {
-        SFXaudioSource.PlayOneShot(playerExplosion);
+        SFXaudioSource.PlayOneShot(playerExplosion, 0.8f);
     }
 
     //called in the AsteroidDestroy script
     public void AsteroidExplosion()
     {
-        SFXaudioSource.PlayOneShot(asteroidExplosion);
+        SFXaudioSource.PlayOneShot(asteroidExplosion, 0.6f);
     }
 
     
     public void BGMusicMainMenu()
     {
         BgMusicAudioSource.clip = BgMusicTitleScreen;
+        BgMusicAudioSource.volume = 0.5f;
         BgMusicAudioSource.Play();
     }
 
     public void BGMusicGameplay()
     {
-        BgMusicAudioSource.GetComponent<AudioSource>().clip = BgMusicGameplay;
+        BgMusicAudioSource.clip = BgMusicGameplay;
+        BgMusicAudioSource.volume = 0.5f;
         BgMusicAudioSource.Play();
 
     }
