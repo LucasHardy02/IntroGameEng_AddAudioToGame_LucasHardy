@@ -15,6 +15,7 @@ public class SFXManager : MonoBehaviour
 
     private AudioSource BgMusicAudioSource;
 
+
     public void Awake()
     {
         SFXaudioSource = GetComponent<AudioSource>();
@@ -31,40 +32,42 @@ public class SFXManager : MonoBehaviour
     //called in the PlayerController Script
     public void PlayerShoot()
     {
+        float randomPitch = UnityEngine.Random.Range(0.5f, 1.5f);
+        SFXaudioSource.pitch = randomPitch;
 
-        SFXaudioSource.PlayOneShot(playerShoot, 0.5f);
+        SFXaudioSource.PlayOneShot(playerShoot, 0.3f);
+
+
     }
 
     //called in the PlayerController Script
     public void PlayerDamage()
     {
-        SFXaudioSource.PlayOneShot(playerDamage, 0.8f);
+        SFXaudioSource.PlayOneShot(playerDamage, 0.5f);
     }
 
     //called in the PlayerController Script
     public void PlayerExplosion()
     {
-        SFXaudioSource.PlayOneShot(playerExplosion, 0.8f);
+        SFXaudioSource.PlayOneShot(playerExplosion, 0.5f);
     }
 
     //called in the AsteroidDestroy script
     public void AsteroidExplosion()
     {
-        SFXaudioSource.PlayOneShot(asteroidExplosion, 0.6f);
+        SFXaudioSource.PlayOneShot(asteroidExplosion, 0.3f);
     }
 
     
     public void BGMusicMainMenu()
     {
         BgMusicAudioSource.clip = BgMusicTitleScreen;
-        BgMusicAudioSource.volume = 0.5f;
         BgMusicAudioSource.Play();
     }
 
     public void BGMusicGameplay()
     {
         BgMusicAudioSource.clip = BgMusicGameplay;
-        BgMusicAudioSource.volume = 0.5f;
         BgMusicAudioSource.Play();
 
     }
